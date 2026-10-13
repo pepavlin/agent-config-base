@@ -30,10 +30,11 @@ Neinstaluj plugin zároveň přes `/plugin` v terminálu. Měl bys pak na jednom
 | `plugins/core/RULES.md` | Globální pravidla. Hook je vloží do každé session. Drž pod 10 000 znaky, nad tím je Claude Code ořízne. |
 | `plugins/core/skills/<nazev>/SKILL.md` | Sdílené skills. Načítají se jen když jsou potřeba, takže sem patří delší postupy. |
 | `plugins/core/hooks/hooks.json` | Hook, který při startu session vypíše `RULES.md` do kontextu. |
+| `plugins/core/.mcp.json` | Připojení Creator MCP a Creator Live. |
 | `.claude-plugin/marketplace.json` | Manifest, díky kterému jde repo přidat jako marketplace. |
 
 ## Pravidla pro obsah
 - Do `RULES.md` jen to, co platí všude. Projektová specifika patří do `CLAUDE.md` daného projektu.
 - Žádné tokeny, hesla ani klíče.
 - Do `plugin.json` nepřidávej `version`. Bez ní se verze odvozuje z commitu a změny se šíří samy. S pevnou verzí by se nestahovaly, dokud ji ručně nezvýšíš.
-- Creator MCP sem nepatří. Je v samostatném pluginu `creator` na claude.ai; druhá kopie by vytvořila duplicitní nástroje.
+- Plugin `core` připojuje Creator MCP a Creator Live (`plugins/core/.mcp.json`). Přihlášení probíhá přes OAuth při prvním použití, žádný token v repu. Nepoužívej zároveň samostatný plugin `creator` z claude.ai, jinak budeš mít stejné nástroje dvakrát.

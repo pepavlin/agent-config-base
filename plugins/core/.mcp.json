@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "creator": {
+      "type": "http",
+      "url": "https://creator.pavlin.dev/api/mcp"
+    },
+    "creator-live": {
+      "type": "http",
+      "url": "https://creator.pavlin.dev/api/live/mcp"
+    }
+  }
+}
