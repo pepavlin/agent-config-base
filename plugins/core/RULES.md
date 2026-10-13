@@ -6,7 +6,7 @@ These rules apply in every project. A project's own `CLAUDE.md` may refine them;
 - Never push to a remote without the user's explicit consent.
 - By default, work in a new branch. After a PR is opened, the user tests the change on its preview deployment.
 - Deploys run automatically. Never trigger one yourself.
-- Whenever you open a PR, always give the user the URL of its preview deployment. Look it up through Creator MCP; never guess or construct the URL from a pattern. If the preview isn't ready yet, give the URL anyway with its current status (e.g. building) instead of waiting for it to finish. If you can't find it, say so explicitly.
+- Whenever you open a PR, always give the user the URL of its preview deployment. Look it up through Creator MCP (`list_service_domains` with the PR's branch for the URL, `get_deploy_status` for its state); never guess or construct the URL from a pattern. If the preview isn't ready yet, give the URL anyway with its current status (e.g. building) instead of waiting for it to finish. If you can't find it, say so explicitly.
 
 ## Creator MCP (creator.pavlin.dev)
 - Use it to check deployment status, build logs, runtime logs and preview deployments of projects.
