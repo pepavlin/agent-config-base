@@ -1,17 +1,27 @@
 # agent-config-base
 
-Jedno místo pro pravidla, workflow a skills, které používám ve všech projektech s Claude Code.
+Jedno místo pro pravidla, workflow a skills, které používám ve všech projektech.
 
-## Instalace (jednou na každém počítači)
+## Instalace (jednou, pro celý účet)
 
-V Claude Code:
+Přidej repo jako marketplace na claude.ai, ne přes `/plugin` v terminálu:
 
-```
-/plugin marketplace add pepavlin/agent-config-base
-/plugin install core@pavlin
-```
+1. Otevři [claude.ai/customize/plugins](https://claude.ai/customize/plugins).
+2. **Add > Add marketplace** a zadej `pepavlin/agent-config-base`. U privátního repa dialog vyzve k připojení GitHubu a instalaci Claude GitHub App.
+3. Zapni plugin **core** a u marketplace zapni **Sync automatically**.
 
-Aktualizace se stahují automaticky při startu session. Ručně: `/plugin marketplace update pavlin`.
+Plugin je pak uložený na účtu a dostane se všude, kde jsi přihlášený:
+
+| Kde | Co se načte |
+| --- | --- |
+| Claude Code v terminálu a desktopové appce | Vše (hook s pravidly, skills). Stáhne se při startu session. |
+| Claude Code na webu (claude.ai/code) | Vše, stejně jako terminál. |
+| Cowork | Vše. |
+| Chat na claude.ai | Jen skills. Hooky chat ignoruje, takže `RULES.md` se tam nenačte. Pro chat platí preference v nastavení účtu. |
+
+Ověření: v nové session se zeptej „Which Creator MCP tool must you never use?“. Pokud odpoví `redeploy_branch`, pravidla se načetla.
+
+Neinstaluj plugin zároveň přes `/plugin` v terminálu. Měl bys pak na jednom stroji dvě kopie a lokální by přebila tu z účtu, včetně toho, že by se neaktualizovala.
 
 ## Co kde je
 
@@ -25,7 +35,5 @@ Aktualizace se stahují automaticky při startu session. Ručně: `/plugin marke
 ## Pravidla pro obsah
 - Do `RULES.md` jen to, co platí všude. Projektová specifika patří do `CLAUDE.md` daného projektu.
 - Žádné tokeny, hesla ani klíče.
-- Do `plugin.json` nepřidávej `version`. Bez ní se verze odvozuje z commitu a každá změna v `main` se projeví sama. S pevnou verzí by se změny nestahovaly, dokud ji ručně nezvýšíš.
-
-## Omezení
-Funguje jen v Claude Code. claude.ai ani Claude Desktop pluginy z Claude Code nenačítají; tam je potřeba pravidla vložit do preferencí a skills nahrát zvlášť.
+- Do `plugin.json` nepřidávej `version`. Bez ní se verze odvozuje z commitu a změny se šíří samy. S pevnou verzí by se nestahovaly, dokud ji ručně nezvýšíš.
+- Creator MCP sem nepatří. Je v samostatném pluginu `creator` na claude.ai; druhá kopie by vytvořila duplicitní nástroje.
