@@ -1,0 +1,15 @@
+{
+  "name": "pavlin",
+  "description": "Pavlinovy sdílené instrukce, workflow a skills pro všechny projekty.",
+  "owner": {
+    "name": "Pavlin",
+    "email": "pavlindotdev@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "core",
+      "source": "./plugins/core",
+      "description": "Globální pravidla práce (načítají se do každé session) a sdílené skills."
+    }
+  ]
+}

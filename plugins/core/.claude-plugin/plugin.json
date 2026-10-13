@@ -1,0 +1,9 @@
+{
+  "name": "core",
+  "displayName": "Pavlin Core",
+  "description": "Globální pravidla práce, která se vkládají do každé session, plus sdílené skills.",
+  "author": {
+    "name": "Pavlin",
+    "email": "pavlindotdev@gmail.com"
+  }
+}
