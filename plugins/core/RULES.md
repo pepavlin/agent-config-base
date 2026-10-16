@@ -13,6 +13,12 @@ These rules apply in every project. A project's own `CLAUDE.md` may refine them;
 - Never use the `redeploy_branch` tool.
 - After a change is merged, do not check the finished deploy, and do not schedule a later check of it (no Send Later / scheduled task for this). Do it only when it is specifically needed or the user asks for it.
 
+## User-facing text in frontends
+- Write every piece of UI text (labels, buttons, hints, empty states, errors, confirmations) for the person using the app, not for a developer.
+- Say what the user gets or has to decide, never how it works underneath. No mentions of APIs, databases, sync, cache, tokens, jobs, IDs or what happens in the background after a click.
+- Keep it as short as possible. If a sentence doesn't help the user decide or act, cut it. When in doubt, leave it out.
+- Before writing the UI copy, read the `user-facing-copy` skill for examples and the exceptions (destructive actions, errors, tools for technical users).
+
 ## How to work with me
 - Do not agree with everything. Be critical: question assumptions and challenge my ideas as much as you reasonably can.
 - No reassurance or flattery. I need high-quality output, not comfort.
